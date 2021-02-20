@@ -6,7 +6,7 @@ const CLIENT_KEY = "GN_KSv5-T-VoKhVja9ceNgFQ";
 const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/spreadsheets";
 const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
 
-const name = $( "#autoname" );
+const name = $("#autoname");
 const submit1 = $("#submit1");
 const submit2 = $("#submit2");
 const form = $("#form");
@@ -83,6 +83,8 @@ function updateSigninStatus(isSignedIn) {
 		});
 		getData();
 		// addRow();
+	} else {
+		console.log("not signed in :'(");
 	}
 }
 
