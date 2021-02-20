@@ -54,14 +54,15 @@ function initClient() {
 		discoveryDocs: DISCOVERY_DOCS,
 		scope: SCOPES
 	}).then(() => {
-			// Listen for sign-in state changes.
-			gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+		console.log("client initiated");
+		// Listen for sign-in state changes.
+		gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
-			// Handle the initial sign-in state.
-			updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-		}, (error) => {
-			console.log(JSON.stringify(error, null, 2));
-		});
+		// Handle the initial sign-in state.
+		updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+	}, (error) => {
+		console.log(JSON.stringify(error, null, 2));
+	});
 }
 
 /**
