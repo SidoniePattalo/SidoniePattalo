@@ -9,11 +9,11 @@ h1 {
     margin-bottom: 2.5%;
 }
 h1, h2, h3, h4, h5 {
-    font-family: de-walpergens-pica, serif;
+    font-family: 'IM Fell DW Pica', serif;
 }
 
 #wyn {
-    font-family: de-walpergens-pica, serif;
+    font-family: 'IM Fell DW Pica', serif;
     margin-top: -10px;
 }
 
@@ -182,7 +182,7 @@ button.button-trigger {
     border-style: solid;
     border-color: #6f806b;
     transition: 0.1s background-color linear, 0.1s color linear;
-    font-family: neue-haas-grotesk-display, sans-serif;
+    font-family: Helvetica, sans-serif;
     background: transparent;
     position: relative;
     z-index: -1;
@@ -196,7 +196,7 @@ input[type=radio] {
     border-style: solid;
     border-color: #6f806b;
     transition: 0.1s background-color linear, 0.1s color linear;
-    font-family: neue-haas-grotesk-display, sans-serif;
+    font-family: Helvetica, sans-serif;
     background: transparent;
     position: relative;
     /*z-index: -1;*/
