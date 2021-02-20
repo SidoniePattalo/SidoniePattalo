@@ -48,6 +48,7 @@ mettre à jour la sheets
  *  listeners.
  */
 function initClient() {
+	console.log("init client");
 	gapi.client.init({
 		apiKey: API_KEY,
 		clientId: CLIENT_ID,
@@ -70,6 +71,7 @@ function initClient() {
  *  appropriately. After a sign-in, the API is called.
  */
 function updateSigninStatus(isSignedIn) {
+	console.log("update sign in status");
 	if (isSignedIn) {
 		submit1.click(ev => {
 			ev.preventDefault();
@@ -98,6 +100,7 @@ function appendPre(message) {
 
 
 function getData() {
+	console.log("get data");
 	gapi.client.sheets.spreadsheets.values.get({
 		spreadsheetId: SPREADSHEET_ID,
 		range: 'Sheet1',
@@ -139,6 +142,7 @@ function getData() {
 }
 
 function generatePersonForm(name, rowNb) {
+	console.log("generate person form");
 	let f;
 	if (name.startsWith("Your +1?")){
 		name = "Your +1?";
@@ -162,6 +166,7 @@ function generatePersonForm(name, rowNb) {
 }
 
 function generateEventForm(i, pool) {
+	console.log("generate event info");
 	const eventInfo = [
 		{name: "Rehearsal Dinner", date: "Thursday, June 9, 2022", time: "6:30 pm – 10:00 pm", place: "Resto de Juju, Aix-en-Provence<br>France"},
 		{name: "Wedding", date: "Thursday, June 9, 2022", time: "6:30 pm – 10:00 pm", place: "Resto de Juju, Aix-en-Provence<br>France"},
@@ -206,6 +211,7 @@ function generateEventForm(i, pool) {
 }
 
 function generateGeneralForm() {
+	console.log("generate general form");
 	form.append(`<div id="general">
 					 <label for="food">Food restriction</label>
 					 <input type="text" id="food">
@@ -219,6 +225,7 @@ function generateGeneralForm() {
 /* en cas de +1 : possibilité de changer pour soumettre le nom de la personne*/
 
 function generateForm(name) {
+	console.log("generate form");
 	const pool = pools[data[name][1]];
 
 	pool.map(name => generatePersonForm(name, data[name].rowNb));
