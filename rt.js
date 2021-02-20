@@ -1,8 +1,8 @@
 // Client ID and API key from the Developer Console
 const SPREADSHEET_ID = "1Fn9w47wZ1E-fJ8S4GCon7n2sjH-DjH6OKaop6EEmkqE";
-const API_KEY = "AIzaSyAvFeBzn_h-9l5IL4iRClSXxS6LfyPEFAo";
+const API_KEY = "AIzaSyDyDXCY04HC_vH0VpB5KOT2hba8w1crrhI";
 const CLIENT_ID = "587671854360-5b2mppi4vhmr7el8i46t9mkam6fk5vug.apps.googleusercontent.com";
-const CLIENT_KEY = "GN_KSv5-T-VoKhVja9ceNgFQ";
+const CLIENT_KEY = "FXYzrEDkvLX_xWDF8a4G8UrO";
 const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/spreadsheets";
 const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
 
