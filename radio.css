@@ -1,0 +1,52 @@
+label.btn-label {
+    display: inline-block;
+    cursor: pointer;
+}
+button.button-trigger {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #6f806b;
+    transition: 0.1s background-color linear, 0.1s color linear;
+    font-family: 'Open Sans', sans-serif;
+    background: transparent;
+    position: relative;
+    z-index: -1;
+    padding: 20px 25px;
+}
+input[type=radio] {
+    display: none;
+}
+.button-trigger {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #6f806b;
+    transition: 0.1s background-color linear, 0.1s color linear;
+    font-family: 'Open Sans', sans-serif;
+    background: transparent;
+    position: relative;
+    /*z-index: -1;*/
+    padding: 20px 25px;
+}
+.button-trigger:hover {
+    background: #6f806b;
+    color: white;
+    border-color: #6f806b;
+}
+
+.button-trigger > input:checked {
+    background: #6f806b;
+    color: white;
+    border-color: #6f806b;
+}
+
+[type="radio"]:checked+button {
+    background: #6f806b;
+    color: white;
+    border-color: #6f806b;
+}
