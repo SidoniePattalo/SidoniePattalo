@@ -3,7 +3,7 @@ const SPREADSHEET_ID = "1Fn9w47wZ1E-fJ8S4GCon7n2sjH-DjH6OKaop6EEmkqE";
 const API_KEY = "AIzaSyDyDXCY04HC_vH0VpB5KOT2hba8w1crrhI";
 const CLIENT_ID = "587671854360-5b2mppi4vhmr7el8i46t9mkam6fk5vug.apps.googleusercontent.com";
 const CLIENT_KEY = "FXYzrEDkvLX_xWDF8a4G8UrO";
-const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/spreadsheets";
+const SCOPES = "https://www.googleapis.com/auth/spreadsheets"/*"https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/spreadsheets"*/;
 const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
 
 const name = $("#autoname");
@@ -52,10 +52,12 @@ function initClient() {
 	gapi.client.init({
 		apiKey: API_KEY,
 		clientId: CLIENT_ID,
-		discoveryDocs: DISCOVERY_DOCS,
-		scope: SCOPES
+		scope: SCOPES,
+		discoveryDocs: DISCOVERY_DOCS
 	}).then(() => {
 		console.log("client initiated");
+		login();
+		/*gapi.auth2.getAuthInstance().signIn();*/
 		// Listen for sign-in state changes.
 		gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
@@ -65,6 +67,15 @@ function initClient() {
 		console.log(JSON.stringify(error, null, 2));
 	});
 }
+
+function login(){
+	gapi.auth.authorize({
+		client_id: API_KEY,
+		scope: SCOPES,
+		immediate: false
+	}, updateSigninStatus());
+}
+
 
 /**
  *  Called when the signed in status changes, to update the UI
