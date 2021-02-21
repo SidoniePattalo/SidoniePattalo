@@ -1,12 +1,22 @@
+/* TODO change submit button style*/
+input[type="submit"] {
+    -webkit-transition: opacity 0.2s ease, background 0.2s ease;
+    transition: opacity 0.2s ease, background 0.2s ease;
+    display: block;
+    opacity: 0;
+    margin: 10px 0 0 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
 input, span, label {
     display: block;
-    margin: 10px;
+    margin: 10px 0;
     padding: 5px;
     border: none;
     font-size: 22px;
 }
 
-textarea:focus,
 input:focus {
     outline: 0;
 }
@@ -51,11 +61,6 @@ input.question:valid {
     padding-top: 35px;
 }
 
-textarea.question:valid,
-textarea.question:focus {
-    margin-top: 35px;
-}
-
 input.question:focus + label > span,
 input.question:valid + label > span {
     top: -100px;
@@ -76,17 +81,6 @@ input.question + label > span {
     transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
 }
 
-/* TODO change submit button style*/
-input[type="submit"] {
-    -webkit-transition: opacity 0.2s ease, background 0.2s ease;
-    transition: opacity 0.2s ease, background 0.2s ease;
-    display: block;
-    opacity: 0;
-    margin: 10px 0 0 0;
-    padding: 10px;
-    cursor: pointer;
-}
-
 input[type="submit"]:hover {
     background: #EEE;
 }
@@ -95,14 +89,50 @@ input[type="submit"]:active {
     background: #999;
 }
 
-input.question:valid ~ input[type="submit"] {
+input.question:valid ~ #submit1 {
     -webkit-animation: appear 1s forwards;
     animation: appear 1s forwards;
 }
 
-input.question:invalid ~ input[type="submit"] {
+input.question:invalid ~ #submit1 {
     display: none;
 }
+
+
+/* QUESTION 2 */
+/* Question */
+input.question2 {
+    font-size: 20px;
+    font-weight: 200;
+    border: none;
+    /*width: 80%;*/
+    font-family: 'Benne', serif;
+    background: rgba(0, 0, 0, 0);
+    overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    padding: 20px 0;
+    width: 25%;
+    border-bottom: 1px solid #6aa570;
+    -webkit-transition: width 0.4s ease;
+    transition: width 0.4s ease;
+    height: 0;
+}
+
+input.question2:focus {
+    width: 80%;
+}
+
+input.question2:valid ~ #submit2 {
+    -webkit-animation: appear 1s forwards;
+    animation: appear 1s forwards;
+}
+
+input.question2:invalid ~ #submit2 {
+    display: none;
+}
+
 
 @-webkit-keyframes appear {
     100% {

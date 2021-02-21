@@ -27,7 +27,7 @@ input[type=radio] {
     border-style: solid;
     border-color: #6f806b;
     transition: 0.1s background-color linear, 0.1s color linear;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Benne', serif;
     background: transparent;
     position: relative;
     /*z-index: -1;*/

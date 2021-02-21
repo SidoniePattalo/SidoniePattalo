@@ -90,8 +90,6 @@ function updateSigninStatus(isSignedIn) {
 		});
 		getData();
 		// addRow();
-	} else {
-		console.log("not signed in :'(");
 	}
 }
 
@@ -151,22 +149,22 @@ function getData() {
 
 function generatePersonForm(name, rowNb) {
 	let f;
+	const email = data[name][4] ? `value="${data[name][4]}"` : 'placeholder="Email address"';
 	if (name.startsWith("Your +1?")){
 		name = "Your +1?";
-		f = `<div id="${rowNb}">
-				   <h3>${name}</h3>
+		f = `<div class="person-div" id="${rowNb}">
+				   <h2>${name}</h2>
 				   <label for="firstname-${rowNb}">First Name</label>
-				   <input class="question" id="firstname-${rowNb}" type="text">
+				   <input class="question2" id="firstname-${rowNb}" type="text">
 				   <label for="lastname-${rowNb}">Last Name</label>
-				   <input class="question" id="lastname-${rowNb}" type="text">
+				   <input class="question2" id="lastname-${rowNb}" type="text">
 				   <label for="email-${rowNb}">E-mail</label>
-				   <input class="question" id="email-${rowNb}" type="email">
+				   <input class="question2" id="email-${rowNb}" type="email">
 			   </div>`;
 	} else {
-		f = `<div id="${rowNb}">
-				   <h3>${name}</h3>
-				   <input class="question" id="email-${rowNb}" type="email">
-				   <label for="email-${rowNb}" class="input-placeholder"><span>Email address</span></label>
+		f = `<div class="person-div" id="${rowNb}">
+				   <h2>${name}</h2>
+				   <input class="question2" id="email-${rowNb}" type="email" ${email}>
 			   </div>`;
 	}
 	form.append(f);
@@ -181,6 +179,7 @@ function generateEventForm(i, pool) {
 
 	let persons = "";
 	pool.map(person => {
+		const persId = data[person].rowNb;
 		persons += `<table>
 						 <tr>
 						 	  <td style="width: 150px">
@@ -188,19 +187,19 @@ function generateEventForm(i, pool) {
 							  </td>
 							  <td>
 								   <label class="btn-label">
-									    <input class="button-trigger" checked type="radio" name="event-${i}" value="yes">
+									    <input class="button-trigger" checked type="radio" name="event-${i}-${persId}" value="yes">
 									    <button class="button-trigger">Will attend</button>
 								   </label>
 							   </td>
 							  <td>
 								   <label class="btn-label">
-								 	    <input class="button-trigger" type="radio" name="event-${i}" value="no">
+								 	    <input class="button-trigger" type="radio" name="event-${i}-${persId}" value="no">
 									    <button class="button-trigger">Will not attend</button>
 								   </label>
 							  </td>
 							  <td>
 								   <label class="btn-label">
-									    <input class="button-trigger" type="radio" name="event-${i}" value="maybe">
+									    <input class="button-trigger" type="radio" name="event-${i}-${persId}" value="maybe">
 									    <button class="button-trigger">Still unsure</button>
 								   </label>
 							  </td>
@@ -218,14 +217,18 @@ function generateEventForm(i, pool) {
 	form.append(e);
 }
 
+const generateQuestion = (id, question) => {
+	return `<div class="question-div">
+				<input class="question2" type="text" id="${id}">
+				<label class="input-placeholder" for="${id}"><span>${question}</span></label>
+			</div>`;
+};
+
 function generateGeneralForm() {
 	form.append(`<div id="general">
-					 <input class="question" type="text" id="food">
-					 <label class="input-placeholder" for="food">Food restriction</label>
-					 <input class="question" type="text" id="music">
-					 <label class="input-placeholder" for="music">Song requests</label>
-					 <input class="question" type="text" id="question">
-					 <label class="input-placeholder" for="question">Questions?</label>
+					${generateQuestion("food", "Food restriction")}
+					${generateQuestion("music", "Song requests")}
+					${generateQuestion("question", "Questions?")}
 				 </div>`);
 }
 
